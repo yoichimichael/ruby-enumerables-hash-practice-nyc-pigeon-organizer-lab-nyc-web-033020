@@ -4,9 +4,11 @@ def nyc_pigeon_organizer(data)
   #creates AoA of names with duplicates
   pigeon_names = data[:color].reduce([]) { |memo, (key, value)| memo << value ; memo }
 
-  #flattens array, removes duplicates,
-  ##adds names as keys to uniq_pigeons
-  pigeon_names.flatten.uniq!.map { |name| uniq_pigeons[name] = {} }
+  #flattens array, removes duplicates if any,
+  pigeons_no_dupes = pigeon_names.flatten.uniq
+
+  #adds names as keys to uniq_pigeons
+  pigeons_no_dupes.map { |name| uniq_pigeons[name] = {} }
   #uniq_pigeons now has :name => {} pairs
 
   #adds data categories to uniq_pigeons
