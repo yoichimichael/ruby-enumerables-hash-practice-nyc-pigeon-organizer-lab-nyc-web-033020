@@ -27,7 +27,7 @@ def nyc_pigeon_organizer(data)
   uniq_pigeons.each_key do |name|
         data[:gender].each_pair do |type, pigeons|
             if pigeons.include?(name)
-                uniq_pigeons[name][:gender] = type.to_s
+                uniq_pigeons[name][:gender] << type.to_s
             end
         end
   end
