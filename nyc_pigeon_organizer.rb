@@ -12,13 +12,13 @@ def nyc_pigeon_organizer(data)
   #adds data categories to uniq_pigeons
   uniq_pigeons.each_value do |value|
         data.each_key { |category| value[category] = [] }
-  end 
+  end
 
   #adds colors
-  pigeons_and_data.each_key do |name|
+  uniq_pigeons.each_key do |name|
         data[:color].each_pair do |type, pigeons|
             if pigeons.include?(name)
-                pigeons_and_data[name][:color] << type.to_s
+                uniq_pigeons[name][:color] << type.to_s
             end
         end
   end
