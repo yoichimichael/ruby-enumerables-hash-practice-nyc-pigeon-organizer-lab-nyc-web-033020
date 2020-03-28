@@ -32,5 +32,14 @@ def nyc_pigeon_organizer(data)
         end
   end
 
+  #adds home
+  uniq_pigeons.each_key do |name|
+        data[:lives].each_pair do |type, pigeons|
+            if pigeons.include?(name)
+                uniq_pigeons[name][:lives] << type
+            end
+        end
+  end
+
   uniq_pigeons
 end
